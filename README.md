@@ -3,6 +3,7 @@
 ##### November 27, 2014
 #####Memorial University of Newfoundland, Dept. of Physics and Physical Oceanography
 ### Introduction
+#### FOR MORE IN-DEPTH INFORMATION SEE THE COMMENTS IN THE CODE.
 **rectangle_fit.py** is a python code designed for use in analyzing images of rod-like colloids. I was written by Haruki Hirasawa under the supervision of Dr. Anand Yethiraj of the Memorial University of Newfoundland, Department of Physics and Physical Oceanography.
 
 ### What does Rectangle_fit do?
