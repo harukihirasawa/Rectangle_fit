@@ -33,7 +33,10 @@ There are two main programs that can be used:
 * rectangle_fit.rectangle_fit is used for analyzing individual images
 * rectangle_fit.fit_img_stack is used for analyzing a .tiff stack of images
 
+###### Input:
 rectangle_fit.rectangle_fit(imgName,[filename = STR,minSize = INT, threshold = INT, min_asp_mult = FLT, max_asp_mult = FLT, len_mult = FLT, area_mult=FLT, max_qual = FLT, debug = BOOL, split = BOOL, out = BOOL, optim = BOOL, display = BOOL, if_arr = BOOL])
+
+
 * imgName - NECESSARY! name of the image to be processed, this image should have white featureson a black background. IF if_arr IS True THEN THE PROGRAM WILL READ AN numPy ARRAY! The intensity of the features must be consisted across the image, if this is not the case, it is recommend that a contrast normalization procedure is used.(See Image.open documentation for accepted image formats)
 *   filename - name of the file to save to. (DEFAULT = imgName, entering "NONE" or not specifiedas filename sets to default.)
 *   scale - a string containing the size of each pixel with the last two entries in the string beingthe units. (DEFAULT = 1px)
@@ -50,3 +53,23 @@ rectangle_fit.rectangle_fit(imgName,[filename = STR,minSize = INT, threshold = I
 *   optim - Toggles profile optimization of the rectangles. (DEFAULT = True)
 *   display - Toggles display of graphs (DEFAULT = False)
 *   if_arr - Toggles image imput type from string input to numPy array input. (DEFAULT = False)
+
+###### Output:
+*   "filename"_metadata.dat  - .dat file containing the metadata for the rectangles in a human friendly format.
+*   "filename"_featuredata.csv - .csv file containing values for every features detected for further analysis outside of this program.
+*   "filename"_rectangle_fit.png - an image of the original image with the fitted, classified rectangles superimposed on it.
+                           CYAN - one rod features
+                           BLUE - small features
+                           YELLOW - two rod features
+                           RED - three or more rod features
+*   "filename"_rectangle_fit_lines.png - The original image with lines representing the major axis of the fitted rectangles in the case of one-rod features and rectangles in the case of multi-rod features.
+                           CYAN - one rod features
+                           BLUE - small features
+                           YELLOW - two rod features
+                           RED - three or more rod features
+*   "filename"_rectangle_fit_optim.png - The original image with lines representing the major axis of the optimized fitted rectangles in the case of one-rod features and rectangles in the case of multi-rod features.
+                           CYAN - optimized one rod features
+                           BLUE - small features
+                           YELLOW - two rod features
+                           RED - three or more rod features
+*    List of Dictionaries - Each particle has an associated dictionary containing information about the particle (area, aspect ratio, length, etc.)
